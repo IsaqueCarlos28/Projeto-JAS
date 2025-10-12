@@ -69,16 +69,38 @@
 
     
 
-    <!-- Carrossel de imagens -->
     <section class="carousel-section">
         <h2>slides</h2>
-        <div class="carousel">
-            <div class="slides">
-                <div class="slide"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d" alt="Imagem 1"></div>
-                <div class="slide"><img src="https://images.unsplash.com/photo-1515169067865-5387ec356754" alt="Imagem 2"></div>
-                <div class="slide"><img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d" alt="Imagem 3"></div>
-                <div class="slide"><img src="https://images.unsplash.com/photo-1517841905240-472988babdf9" alt="Imagem 4"></div>
+        <div class="carousel-container">
+            
+            <button class="carousel-button prev" onclick="prevSlide()">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            
+            <div class="carousel">
+                <div class="slides" id="slides-container">
+                    <div class="slide"><img src="/img/apresentacao de slides/Uberização do Trabalho Implicações, Consequências e Soluções.pdf_pages-to-jpg-0001.jpg" alt="slide 1"></div>
+                    <div class="slide"><img src="/img/apresentacao de slides/Uberização do Trabalho Implicações, Consequências e Soluções.pdf_pages-to-jpg-0002.jpg" alt="slide 2"></div>
+                    <div class="slide"><img src="/img/apresentacao de slides/Uberização do Trabalho Implicações, Consequências e Soluções.pdf_pages-to-jpg-0003.jpg" alt="slide 3"></div>
+                    <div class="slide"><img src="/img/apresentacao de slides/Uberização do Trabalho Implicações, Consequências e Soluções.pdf_pages-to-jpg-0004.jpg" alt="slide 4"></div>
+                    <div class="slide"><img src="/img/apresentacao de slides/Uberização do Trabalho Implicações, Consequências e Soluções.pdf_pages-to-jpg-0005.jpg" alt="slide 5"></div>
+                    <div class="slide"><img src="/img/apresentacao de slides/Uberização do Trabalho Implicações, Consequências e Soluções.pdf_pages-to-jpg-0006.jpg" alt="slide 6"></div>
+                    <div class="slide"><img src="/img/apresentacao de slides//Uberização do Trabalho Implicações, Consequências e Soluções.pdf_pages-to-jpg-0007.jpg" alt="slide 7"></div>
+                    <div class="slide"><img src="/img/apresentacao de slides/Uberização do Trabalho Implicações, Consequências e Soluções.pdf_pages-to-jpg-0008.jpg" alt="slide 8"></div>
+                    <div class="slide"><img src="/img/apresentacao de slides/Uberização do Trabalho Implicações, Consequências e Soluções.pdf_pages-to-jpg-0009.jpg" alt="slide 9"></div>
+                    <div class="slide"><img src="/img/apresentacao de slides/Uberização do Trabalho Implicações, Consequências e Soluções.pdf_pages-to-jpg-0010.jpg" alt="slide 10"></div>
+                    <div class="slide"><img src="/img/apresentacao de slides/Uberização do Trabalho Implicações, Consequências e Soluções.pdf_pages-to-jpg-0011.jpg" alt="slide 11"></div>
+                    <div class="slide"><img src="/img/apresentacao de slides/Uberização do Trabalho Implicações, Consequências e Soluções.pdf_pages-to-jpg-0012.jpg" alt="slide 12"></div>
+                    <div class="slide"><img src="/img/apresentacao de slides/Uberização do Trabalho Implicações, Consequências e Soluções.pdf_pages-to-jpg-0013.jpg" alt="slide 13"></div>
+                    <div class="slide"><img src="/img/apresentacao de slides/Uberização do Trabalho Implicações, Consequências e Soluções.pdf_pages-to-jpg-0014.jpg" alt="slide 14"></div>
+                    <div class="slide"><img src="/img/apresentacao de slides/Uberização do Trabalho Implicações, Consequências e Soluções.pdf_pages-to-jpg-0015.jpg" alt="slide 15"></div>
+                </div>
             </div>
+
+            <button class="carousel-button next" onclick="nextSlide()">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            
         </div>
     </section>
 
@@ -142,6 +164,6 @@
         <p>© 2025 JAS - Uberização do Trabalho | Todos os direitos reservados.</p>
     </div>
 </footer>
-
+ <script src="script.js"></script>
 </body>
 </html>

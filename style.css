@@ -168,66 +168,106 @@ header nav a:hover {
 }
 
 
-/* ===== Carrossel ===== */
+/* Estilos existentes */
 .carousel-section {
     text-align: center;
     padding: 50px 20px;
-    background-color: #f7f7f7;
+    background-color: white;
 }
 
 .carousel-section h2 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: 700;
     margin-bottom: 25px;
+    color: #333;
+}
+
+/* Novo container para posicionar os botões sobre o carrossel */
+.carousel-container {
+    position: relative; /* Base para o posicionamento absoluto dos botões */
+    width: 100%;
+    max-width: 800px; 
+    margin: 0 auto;
 }
 
 .carousel {
     width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
+    height: 450px; 
     overflow: hidden;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    /* Adiciona uma transição suave para o movimento do slide */
+    transition: all 0.5s ease-in-out; 
 }
 
 .slides {
     display: flex;
-    width: 400%;
-    animation: slide 20s infinite;
+    /* 15 slides * 100% = 1500% de largura total */
+    width: 1500%; 
+    padding: 0;
+    margin: 0;
+    /* CRUCIAL: Remove a animação baseada em CSS */
+    /* animation: none !important; */ 
+    transition: transform 0.4s ease-in-out; /* Transição para o JS */
 }
 
 .slide {
-    width: 100%;
+    /* Cada slide ocupa 1/15 da largura total */
+    width: calc(100% / 15); 
     flex-shrink: 0;
 }
 
 .slide img {
     width: 100%;
-    height: 400px;
-    object-fit: cover;
+    height: 100%; 
+    object-fit: cover; 
     display: block;
 }
 
-/* Animação do carrossel */
-@keyframes slide {
-    0%   { transform: translateX(0%); }
-    20%  { transform: translateX(0%); }
-    25%  { transform: translateX(-100%); }
-    45%  { transform: translateX(-100%); }
-    50%  { transform: translateX(-200%); }
-    70%  { transform: translateX(-200%); }
-    75%  { transform: translateX(-300%); }
-    95%  { transform: translateX(-300%); }
-    100% { transform: translateX(0%); }
+
+/* --- ESTILO DOS BOTÕES DE NAVEGAÇÃO --- */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+    color: white;
+    border: none;
+    padding: 15px 10px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    z-index: 10; /* Garante que o botão fique acima da imagem */
+    transition: background 0.3s;
+    border-radius: 5px;
 }
 
-/* Responsividade */
+.carousel-button:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+    left: 0; 
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.next {
+    right: 0; 
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* -------------------- RESPONSIVIDADE -------------------- */
 @media (max-width: 768px) {
-    .slide img {
-        height: 250px;
+    .carousel {
+        height: 300px; 
+    }
+    
+    .carousel-button {
+        font-size: 1.2rem;
+        padding: 10px 8px;
     }
 }
-
 
 /* Vídeo */
 .video-section {
