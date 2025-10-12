@@ -55,14 +55,14 @@ header nav a:hover {
 .hero {
     position: relative;
     /* Altura reduzida e fixa */
-    height: 60vh; 
+    height: 80vh; 
     min-height: 400px;
     width: 100%;
     
     /* Imagem de fundo deve ser definida aqui */
-    background-image: url('caminho/para/sua_imagem_de_fundo.jpg'); /* SUBSTITUA O CAMINHO! */
+    background-image: url('/img/entregador.png'); /* SUBSTITUA O CAMINHO! */
     background-size: cover;
-    background-position: center center;
+    background-position: top center;
 }
 
 /* Overlay de Gradiente Azul (::before substitui o .hero-overlay) */
