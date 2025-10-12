@@ -3,27 +3,29 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins", Arial, sans-serif;
+    /* Use a fonte Poppins, se disponível no seu projeto */
+    font-family: "Poppins", Arial, sans-serif; 
 }
 
 body {
-    background-color: #fff;
-    color: #000;
+    background-color: #f7f7f7; /* Fundo cinza claro */
+    color: #333;
 }
 
-/* Cabeçalho fixo */
+/* -------------------- CABEÇALHO -------------------- */
 header {
     width: 100%;
     background-color: #002f9e;
     color: #fff;
-    position: fixed;
+    /* Posição absoluta para ficar SOBRE a hero section */
+    position: absolute; 
     top: 0;
     left: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 12px 24px;
-    z-index: 10;
+    z-index: 20;
     flex-wrap: wrap;
 }
 
@@ -49,39 +51,144 @@ header nav a:hover {
     text-decoration: underline;
 }
 
-/* Hero */
+/* -------------------- SEÇÃO HERO (IMAGEM DE FUNDO COM GRADIENTE) -------------------- */
 .hero {
     position: relative;
-    margin-top: 70px; /* compensar header fixo */
+    /* Altura reduzida e fixa */
+    height: 60vh; 
+    min-height: 400px;
     width: 100%;
+    
+    /* Imagem de fundo deve ser definida aqui */
+    background-image: url('caminho/para/sua_imagem_de_fundo.jpg'); /* SUBSTITUA O CAMINHO! */
+    background-size: cover;
+    background-position: center center;
 }
 
-.hero img {
+/* Overlay de Gradiente Azul (::before substitui o .hero-overlay) */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
+    height: 100%;
+    z-index: 1; 
+    
+    /* Gradiente que vai do azul escuro para transparente */
+    background: linear-gradient(
+        to right, 
+        rgba(0, 47, 158, 0.7) 0%, 
+        rgba(0, 0, 0, 0.4) 40%,    
+        transparent 100%          
+    );
 }
 
 .hero-text {
     position: absolute;
-    top: 20%;
-    left: 5%;
+    bottom: 40px; 
+    left: 50px; 
     color: #fff;
+    z-index: 2; 
 }
 
 .hero-text h1 {
-    font-size: 2rem;
-    font-weight: 700;
-    text-shadow: 0 2px 5px rgba(0,0,0,0.6);
+    font-size: 3.5rem; 
+    font-weight: 800; 
+    line-height: 1.1;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.9);
+    margin: 0;
 }
 
 .hero-text p {
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     margin-top: 5px;
 }
 
-/* Sessões gerais */
+/* -------------------- CARROSSEL -------------------- */
+.carousel-section {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: white;
+}
+
+.carousel-section h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.carousel-container {
+    position: relative; 
+    width: 100%;
+    max-width: 800px; 
+    margin: 0 auto;
+}
+
+.carousel {
+    width: 100%;
+    height: 450px; 
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: all 0.5s ease-in-out; 
+}
+
+.slides {
+    display: flex;
+    width: 1500%; /* 15 slides * 100% */
+    padding: 0;
+    margin: 0;
+    transition: transform 0.4s ease-in-out; 
+}
+
+.slide {
+    width: calc(100% / 15); 
+    flex-shrink: 0;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%; 
+    object-fit: cover; 
+    display: block;
+}
+
+/* --- ESTILO DOS BOTÕES DE NAVEGAÇÃO --- */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5); 
+    color: white;
+    border: none;
+    padding: 15px 10px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    z-index: 10; 
+    transition: background 0.3s;
+    border-radius: 5px;
+}
+
+.carousel-button:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+    left: 0; 
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.next {
+    right: 0; 
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+
+/* -------------------- ODS CARDS E SEÇÕES GERAIS -------------------- */
 .section {
     padding: 40px 20px;
     text-align: center;
@@ -100,8 +207,6 @@ header nav a:hover {
     font-size: 1rem;
 }
 
-/* ODS cards */
-/* ODS - cards */
 .ods-container {
     display: grid;
     grid-template-columns: 1fr;
@@ -124,172 +229,26 @@ header nav a:hover {
     box-shadow: 0 8px 18px rgba(0,0,0,0.2);
 }
 
-.ods-card img {
-    width: 150px;
-    height: auto;
-    margin-bottom: 15px;
-}
-
 .ods-content h3 {
     font-size: 1.1rem;
     font-weight: 700;
     margin-bottom: 10px;
 }
 
-.ods-content p {
-    font-size: 0.95rem;
-    line-height: 1.5;
-}
-
 /* cores temáticas */
 .ods-card.red {
     border-top: 6px solid #d72a2a;
 }
-
 .ods-card.orange {
     border-top: 6px solid #f44336;
 }
-
 .ods-card.purple {
     border-top: 6px solid #8c1444;
-}
-
-/* Responsividade */
-@media (min-width: 600px) {
-    .ods-container {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media (min-width: 1024px) {
-    .ods-container {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-
-/* Estilos existentes */
-.carousel-section {
-    text-align: center;
-    padding: 50px 20px;
-    background-color: white;
-}
-
-.carousel-section h2 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-bottom: 25px;
-    color: #333;
-}
-
-/* Novo container para posicionar os botões sobre o carrossel */
-.carousel-container {
-    position: relative; /* Base para o posicionamento absoluto dos botões */
-    width: 100%;
-    max-width: 800px; 
-    margin: 0 auto;
-}
-
-.carousel {
-    width: 100%;
-    height: 450px; 
-    overflow: hidden;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    /* Adiciona uma transição suave para o movimento do slide */
-    transition: all 0.5s ease-in-out; 
-}
-
-.slides {
-    display: flex;
-    /* 15 slides * 100% = 1500% de largura total */
-    width: 1500%; 
-    padding: 0;
-    margin: 0;
-    /* CRUCIAL: Remove a animação baseada em CSS */
-    /* animation: none !important; */ 
-    transition: transform 0.4s ease-in-out; /* Transição para o JS */
-}
-
-.slide {
-    /* Cada slide ocupa 1/15 da largura total */
-    width: calc(100% / 15); 
-    flex-shrink: 0;
-}
-
-.slide img {
-    width: 100%;
-    height: 100%; 
-    object-fit: cover; 
-    display: block;
-}
-
-
-/* --- ESTILO DOS BOTÕES DE NAVEGAÇÃO --- */
-.carousel-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
-    color: white;
-    border: none;
-    padding: 15px 10px;
-    cursor: pointer;
-    font-size: 1.5rem;
-    z-index: 10; /* Garante que o botão fique acima da imagem */
-    transition: background 0.3s;
-    border-radius: 5px;
-}
-
-.carousel-button:hover {
-    background: rgba(0, 0, 0, 0.8);
-}
-
-.prev {
-    left: 0; 
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-}
-
-.next {
-    right: 0; 
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-}
-
-/* -------------------- RESPONSIVIDADE -------------------- */
-@media (max-width: 768px) {
-    .carousel {
-        height: 300px; 
-    }
-    
-    .carousel-button {
-        font-size: 1.2rem;
-        padding: 10px 8px;
-    }
-}
-
-/* Vídeo */
-.video-section {
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-}
-
-.video-section video {
-    width: 90%;
-    max-width: 600px;
-    border-radius: 8px;
 }
 
 /* Abaixo-assinado */
 .assinatura {
     background-color: #f7f7f7;
-}
-
-.assinatura h2 {
-    font-weight: 700;
-    margin-bottom: 15px;
 }
 
 .assinatura button {
@@ -308,8 +267,7 @@ header nav a:hover {
     background-color: #002699;
 }
 
-/* Rodapé */
-/* ===== Rodapé ===== */
+/* -------------------- RODAPÉ -------------------- */
 footer {
     background-color: #002f9e;
     color: #fff;
@@ -326,42 +284,15 @@ footer {
     padding: 0 20px 30px;
 }
 
-.footer-about h3 {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-}
-
-.footer-about p {
-    line-height: 1.6;
-    color: #e5e5e5;
-}
-
-.footer-links h4,
-.footer-social h4 {
-    margin-bottom: 10px;
-    font-size: 1.1rem;
-    border-bottom: 2px solid #ffffff55;
-    display: inline-block;
-    padding-bottom: 4px;
-}
-
 .footer-links ul {
     list-style: none;
-    margin-top: 10px;
+    padding: 0;
 }
 
-.footer-links li {
-    margin: 6px 0;
-}
-
-.footer-links a {
+.footer-links a, .footer-social i {
     color: #fff;
     text-decoration: none;
     transition: opacity 0.3s ease;
-}
-
-.footer-links a:hover {
-    opacity: 0.8;
 }
 
 .footer-social .social-icons {
@@ -370,19 +301,6 @@ footer {
     margin-top: 10px;
 }
 
-.footer-social img {
-    width: 24px;
-    height: 24px;
-    filter: brightness(0) invert(1);
-    transition: transform 0.2s ease, opacity 0.3s ease;
-}
-
-.footer-social a:hover img {
-    transform: scale(1.1);
-    opacity: 0.8;
-}
-
-/* Parte inferior */
 .footer-bottom {
     border-top: 1px solid #ffffff33;
     text-align: center;
@@ -391,47 +309,63 @@ footer {
     color: #ddd;
 }
 
-/* Responsividade */
+
+/* -------------------- RESPONSIVIDADE -------------------- */
+@media (min-width: 600px) {
+    .ods-container {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .hero-text h1 {
+        font-size: 3rem; 
+    }
+}
+
 @media (min-width: 768px) {
     .footer-container {
         grid-template-columns: 2fr 1fr 1fr;
         align-items: start;
     }
-
-    .footer-about p {
-        max-width: 400px;
-    }
 }
 
-
-/* RESPONSIVIDADE */
-
-/* Tablets */
-@media (min-width: 600px) {
-    .ods-container {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .hero-text h1 {
-        font-size: 2.5rem;
-    }
-}
-
-/* Desktops */
 @media (min-width: 1024px) {
-    .section {
-        padding: 60px 80px;
-    }
-
     .ods-container {
         grid-template-columns: repeat(3, 1fr);
     }
-
+    
     .hero-text h1 {
-        font-size: 3rem;
+        font-size: 4rem; 
+    }
+}
+
+/* Responsividade Hero e Carrossel para Mobile */
+@media (max-width: 768px) {
+    /* HERO */
+    .hero {
+        height: 45vh; 
+        min-height: 350px;
     }
 
-    header nav a {
-        font-size: 15px;
+    .hero-text {
+        bottom: 20px; 
+        left: 20px; 
+    }
+    
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+    
+    .hero-text p {
+        font-size: 1rem;
+    }
+
+    /* CARROSSEL */
+    .carousel {
+        height: 300px; 
+    }
+    
+    .carousel-button {
+        font-size: 1.2rem;
+        padding: 10px 8px;
     }
 }
