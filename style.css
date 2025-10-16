@@ -235,6 +235,45 @@ header nav a:hover {
     margin-bottom: 10px;
 }
 
+/* --- Seção de Vídeo --- */
+.video-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #f7f7f7; /* Cor de fundo para a seção */
+}
+
+/* Container que força a proporção 16:9 */
+.video-responsive {
+    position: relative;
+    max-width: 800px; /* Largura máxima do vídeo no desktop */
+    margin: 30px auto 0;
+    
+    /* Truque do Padding para manter a proporção 16:9 (9 / 16 = 0.5625) */
+    padding-bottom: 56.25%; 
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* O elemento de vídeo (ou iframe do YouTube) deve preencher o container responsivo */
+.video-responsive video,
+.video-responsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none; /* Remove a borda padrão do iframe */
+}
+
+/* --- Responsividade (Ajuste fino em telas menores) --- */
+@media (max-width: 768px) {
+    .video-section {
+        padding: 30px 10px;
+    }
+}
+
 /* cores temáticas */
 .ods-card.red {
     border-top: 6px solid #d72a2a;
