@@ -1,24 +1,26 @@
-/* Reset básico */
+/* =========================
+   RESET E TIPOGRAFIA
+========================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* Use a fonte Poppins, se disponível no seu projeto */
-    font-family: "Poppins", Arial, sans-serif; 
+    font-family: "Poppins", Arial, sans-serif;
 }
 
 body {
-    background-color: #f7f7f7; /* Fundo cinza claro */
+    background-color: #f7f7f7;
     color: #333;
 }
 
-/* -------------------- CABEÇALHO -------------------- */
+/* =========================
+   CABEÇALHO
+========================= */
 header {
     width: 100%;
     background-color: #002f9e;
     color: #fff;
-    /* Posição absoluta para ficar SOBRE a hero section */
-    position: absolute; 
+    position: absolute; /* ou fixed se quiser que fique sempre visível */
     top: 0;
     left: 0;
     display: flex;
@@ -32,6 +34,16 @@ header {
 header .logo {
     font-weight: bold;
     letter-spacing: 0.5px;
+    display: flex;
+}
+
+.logo img{
+    max-width: 40px;
+    max-height: 40px;
+    margin: 5px;
+}
+.logo p {
+    margin: auto;
 }
 
 header nav {
@@ -40,32 +52,30 @@ header nav {
     justify-content: center;
 }
 
-header nav a {
+header a {
     color: #fff;
     margin: 5px 10px;
     text-decoration: none;
     font-size: 14px;
 }
 
-header nav a:hover {
+header a:hover {
     text-decoration: underline;
 }
 
-/* -------------------- SEÇÃO HERO (IMAGEM DE FUNDO COM GRADIENTE) -------------------- */
+/* =========================
+   HERO
+========================= */
 .hero {
     position: relative;
-    /* Altura reduzida e fixa */
-    height: 80vh; 
+    height: 80vh;
     min-height: 400px;
     width: 100%;
-    
-    /* Imagem de fundo deve ser definida aqui */
-    background-image: url('/img/entregador.png'); /* SUBSTITUA O CAMINHO! */
+    background-image: url('/img/entregador.png'); /* SUBSTITUA O CAMINHO */
     background-size: cover;
     background-position: top center;
 }
 
-/* Overlay de Gradiente Azul (::before substitui o .hero-overlay) */
 .hero::before {
     content: "";
     position: absolute;
@@ -73,28 +83,26 @@ header nav a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1; 
-    
-    /* Gradiente que vai do azul escuro para transparente */
+    z-index: 1;
     background: linear-gradient(
-        to right, 
-        rgba(0, 47, 158, 0.7) 0%, 
-        rgba(0, 0, 0, 0.4) 40%,    
-        transparent 100%          
+        to right,
+        rgba(0, 47, 158, 0.7) 0%,
+        rgba(0, 0, 0, 0.4) 40%,
+        transparent 100%
     );
 }
 
 .hero-text {
     position: absolute;
-    bottom: 40px; 
-    left: 50px; 
+    bottom: 40px;
+    left: 50px;
     color: #fff;
-    z-index: 2; 
+    z-index: 2;
 }
 
 .hero-text h1 {
-    font-size: 3.5rem; 
-    font-weight: 800; 
+    font-size: 3.5rem;
+    font-weight: 800;
     line-height: 1.1;
     text-shadow: 2px 2px 6px rgba(0,0,0,0.9);
     margin: 0;
@@ -105,11 +113,103 @@ header nav a:hover {
     margin-top: 5px;
 }
 
-/* -------------------- CARROSSEL -------------------- */
+/* =========================
+   BOTÕES PADRÃO
+========================= */
+.botao {
+    display: inline-block;
+    background-color: #0078ff;
+    color: #fff;
+    padding: 0.8rem 1.8rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.3s;
+    cursor: pointer;
+}
+
+.botao:hover {
+    background-color: #005fcc;
+}
+
+/* =========================
+   SEÇÃO DE TEXTO COM IMAGEM
+========================= */
+.texto-imagem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 3rem 10%;
+    flex-wrap: wrap;
+}
+
+.texto-imagem .texto {
+    flex: 1;
+    min-width: 280px;
+}
+
+.texto-imagem .texto h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #222;
+}
+
+.texto-imagem .texto p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+.texto-imagem .imagem {
+    flex: 1;
+    min-width: 280px;
+    display: flex;
+    justify-content: center;
+}
+
+.texto-imagem .imagem img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* =========================
+   SEÇÃO DE TEXTO SIMPLES
+========================= */
+.texto-simples {
+    padding: 4rem 10%;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.texto-simples .conteudo {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.texto-simples h2 {
+    font-size: 2rem;
+    color: #222;
+    margin-bottom: 1.5rem;
+}
+
+.texto-simples p {
+    font-size: 1.1rem;
+    color: #444;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+/* =========================
+   CARROSSEL
+========================= */
 .carousel-section {
     text-align: center;
     padding: 50px 20px;
-    background-color: white;
+    background-color: #fff;
 }
 
 .carousel-section h2 {
@@ -120,174 +220,149 @@ header nav a:hover {
 }
 
 .carousel-container {
-    position: relative; 
+    position: relative;
     width: 100%;
-    max-width: 800px; 
+    max-width: 800px;
     margin: 0 auto;
 }
 
 .carousel {
     width: 100%;
-    height: 450px; 
+    height: 450px;
     overflow: hidden;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    transition: all 0.5s ease-in-out; 
+    transition: all 0.5s ease-in-out;
 }
 
 .slides {
     display: flex;
-    width: 1500%; /* 15 slides * 100% */
-    padding: 0;
-    margin: 0;
-    transition: transform 0.4s ease-in-out; 
+    transition: transform 0.4s ease-in-out;
 }
 
 .slide {
-    width: calc(100% / 15); 
-    flex-shrink: 0;
+    flex: 0 0 100%; /* 1 slide por vez */
 }
 
 .slide img {
     width: 100%;
-    height: 100%; 
-    object-fit: cover; 
-    display: block;
+    height: 100%;
+    object-fit: cover;
 }
 
-/* --- ESTILO DOS BOTÕES DE NAVEGAÇÃO --- */
+/* Botões do Carrossel */
 .carousel-button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5); 
-    color: white;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
     border: none;
     padding: 15px 10px;
     cursor: pointer;
     font-size: 1.5rem;
-    z-index: 10; 
-    transition: background 0.3s;
+    z-index: 10;
     border-radius: 5px;
+    transition: background 0.3s;
 }
 
 .carousel-button:hover {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0,0,0,0.8);
 }
 
-.prev {
-    left: 0; 
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-}
+.prev { left: 0; }
+.next { right: 0; }
 
-.next {
-    right: 0; 
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-}
-
-
-/* -------------------- ODS CARDS E SEÇÕES GERAIS -------------------- */
+/* =========================
+   SEÇÃO DE ODS
+========================= */
 .section {
-    padding: 40px 20px;
     text-align: center;
+    padding: 4rem 10%;
+    background-color: #f9f9f9;
 }
 
 .section h2 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 15px;
-}
-
-.section p {
-    max-width: 700px;
-    margin: 0 auto;
-    line-height: 1.6;
-    font-size: 1rem;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #222;
+    letter-spacing: 1px;
 }
 
 .ods-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 25px;
-    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
 }
 
 .ods-card {
-    background-color: #fff;
-    border-radius: 15px;
-    padding: 25px;
-    text-align: center;
-    color: #333;
+    background: #fff;
+    border-radius: 16px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    overflow: hidden;
+    width: 300px;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .ods-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
 }
 
-.ods-content h3 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-bottom: 10px;
+.ods-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    object-position: bottom center;
 }
 
-/* --- Seção de Vídeo --- */
+.ods-content {
+    padding: 1.5rem;
+}
+
+.ods-content p {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.6;
+}
+
+/* Cores ODS */
+.ods-card.red { border-top: 6px solid #d72a2a; }
+.ods-card.orange { border-top: 6px solid #f44336; }
+.ods-card.purple { border-top: 6px solid #8c1444; }
+
+/* =========================
+   VÍDEO
+========================= */
 .video-section {
     padding: 60px 20px;
     text-align: center;
-    background-color: #f7f7f7; 
+    background-color: #f7f7f7;
 }
 
-/* Container que força a proporção 16:9 */
 .video-responsive {
-    
-    max-width: 800px; /* Define a largura máxima que o vídeo pode ter */
-    width: 100%; /* Garante que ele ocupe 100% da largura disponível até o max-width */
+    max-width: 800px;
+    width: 100%;
     margin: 30px auto 0;
-    
-    
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* O elemento de vídeo (ou iframe do YouTube) deve preencher o container responsivo */
 .video-responsive video,
 .video-responsive iframe {
-    
-    top: 0;
-    left: 0;
-    width: 100%;  /* CRUCIAL: Agora o vídeo preenche 100% da largura do .video-responsive */
+    width: 100%;
     border: none;
-    display: block; /* Garante que não haja espaço extra */
+    display: block;
 }
 
-/* --- Responsividade (Ajuste fino em telas menores) --- */
-@media (max-width: 768px) {
-    .video-section {
-        padding: 30px 10px;
-    }
-    /* Não precisa mudar nada no .video-responsive ou vídeo, 
-       a proporção já se mantém automaticamente */
-}
-
-/* cores temáticas */
-.ods-card.red {
-    border-top: 6px solid #d72a2a;
-}
-.ods-card.orange {
-    border-top: 6px solid #f44336;
-}
-.ods-card.purple {
-    border-top: 6px solid #8c1444;
-}
-
-/* Abaixo-assinado */
+/* =========================
+   ABAIXO-ASSINADO
+========================= */
 .assinatura {
     background-color: #f7f7f7;
+    text-align: center;
+    padding: 3rem 0;
 }
 
 .assinatura button {
@@ -306,7 +381,9 @@ header nav a:hover {
     background-color: #002699;
 }
 
-/* -------------------- RODAPÉ -------------------- */
+/* =========================
+   RODAPÉ
+========================= */
 footer {
     background-color: #002f9e;
     color: #fff;
@@ -328,7 +405,8 @@ footer {
     padding: 0;
 }
 
-.footer-links a, .footer-social i {
+.footer-links a,
+.footer-social i {
     color: #fff;
     text-decoration: none;
     transition: opacity 0.3s ease;
@@ -340,6 +418,11 @@ footer {
     margin-top: 10px;
 }
 
+.social-icons img {
+    max-width: 30px;
+    max-height: 30px;
+}
+
 .footer-bottom {
     border-top: 1px solid #ffffff33;
     text-align: center;
@@ -348,63 +431,37 @@ footer {
     color: #ddd;
 }
 
+/* =========================
+   RESPONSIVIDADE
+========================= */
+@media (max-width: 768px) {
+    /* HERO */
+    .hero { height: 45vh; min-height: 350px; }
+    .hero-text { bottom: 20px; left: 20px; }
+    .hero-text h1 { font-size: 2.2rem; }
+    .hero-text p { font-size: 1rem; }
 
-/* -------------------- RESPONSIVIDADE -------------------- */
+    /* CARROSSEL */
+    .carousel { height: 300px; }
+    .carousel-button { font-size: 1.2rem; padding: 10px 8px; }
+
+    /* ODS */
+    .ods-card { width: 100%; max-width: 400px; }
+}
+
 @media (min-width: 600px) {
-    .ods-container {
-        grid-template-columns: 1fr 1fr;
-    }
-    
-    .hero-text h1 {
-        font-size: 3rem; 
-    }
+    .ods-container { grid-template-columns: repeat(2, 1fr); }
+    .hero-text h1 { font-size: 3rem; }
+}
+
+@media (min-width: 1024px) {
+    .ods-container { grid-template-columns: repeat(3, 1fr); }
+    .hero-text h1 { font-size: 4rem; }
 }
 
 @media (min-width: 768px) {
     .footer-container {
         grid-template-columns: 2fr 1fr 1fr;
         align-items: start;
-    }
-}
-
-@media (min-width: 1024px) {
-    .ods-container {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    
-    .hero-text h1 {
-        font-size: 4rem; 
-    }
-}
-
-/* Responsividade Hero e Carrossel para Mobile */
-@media (max-width: 768px) {
-    /* HERO */
-    .hero {
-        height: 45vh; 
-        min-height: 350px;
-    }
-
-    .hero-text {
-        bottom: 20px; 
-        left: 20px; 
-    }
-    
-    .hero-text h1 {
-        font-size: 2.2rem;
-    }
-    
-    .hero-text p {
-        font-size: 1rem;
-    }
-
-    /* CARROSSEL */
-    .carousel {
-        height: 300px; 
-    }
-    
-    .carousel-button {
-        font-size: 1.2rem;
-        padding: 10px 8px;
     }
 }
